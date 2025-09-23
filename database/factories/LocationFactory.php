@@ -70,7 +70,8 @@ class LocationFactory extends Factory
             'City Public Housing Office', 
         ];
         return [
-            //
+            'name' => $this->faker->unique()->randomElement($officeLocations),
+            'description' => $this->faker->sentence(),
         ];
     }
 }
