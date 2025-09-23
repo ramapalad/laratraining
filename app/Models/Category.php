@@ -15,7 +15,7 @@ class Category extends Model
         'description',
     ];
 
-    /**
+    /**"
      * Get the assets for the category.
      */
     public function assets(): HasMany
