@@ -22,6 +22,8 @@ class ManufacturerFactory extends Factory
             'support_url' => $this->faker->url(),
             'support_phone' => $this->faker->phoneNumber(),
             'support_email' => $this->faker->unique()->safeEmail(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

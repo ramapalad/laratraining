@@ -42,6 +42,8 @@ class AssetFactory extends Factory
             'location_id' => $locationId,
             'manufacturer_id' => $manufacturerId,
             'assigned_to_user_id' => $this->faker->boolean(70) ? $assignedToUserId : null,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

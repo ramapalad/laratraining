@@ -72,6 +72,8 @@ class LocationFactory extends Factory
         return [
             'name' => $this->faker->unique()->randomElement($officeLocations),
             'description' => $this->faker->sentence(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
