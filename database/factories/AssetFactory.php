@@ -3,6 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
+use App\Models\Location;
+use App\Models\Manufacturer;
+use App\Models\User;
+use App\Enums\AssetStatusEnum;
+use App\Models\Asset;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -23,7 +29,7 @@ class AssetFactory extends Factory
 
         $statuses = [
             AssetStatusEnum::Deployed,
-            AssetStatusEnum::InStorage,
+            AssetStatusEnum::In_Storage,
             AssetStatusEnum::Maintenance,
             AssetStatusEnum::Retired,
             AssetStatusEnum::Broken,

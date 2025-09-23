@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Enums;
 
-enum AssetEnum: string
+enum AssetStatusEnum: string
 {
     case Deployed = 'Deployed';
     case In_Storage = 'In Storage';

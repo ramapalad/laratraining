@@ -71,7 +71,7 @@ class LocationFactory extends Factory
         ];
         return [
             'name' => $this->faker->unique()->randomElement($officeLocations),
-            'description' => $this->faker->sentence(),
+            'address' => $this->faker->address(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

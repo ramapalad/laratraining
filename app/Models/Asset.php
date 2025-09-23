@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Enum\AssetStatusEnum;
+use App\Enums\AssetStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Asset extends Model
 {
+
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'serial_number',
