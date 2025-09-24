@@ -13,15 +13,17 @@ class RoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+
+
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        $userRole = auth()->user()->role->value;
+        $userRole = auth()->user()->role->value; // Enum string value
+        
+        \Log::info('User Role:', ['role' => $userRole]);
+        \Log::info('Required Roles:', $roles);
 
-        \Log::info('User Role: ' . ['role' => $userRole]);
-        \Log::info('Required Role: ', $roles);
-
-        if (!in_array($userRole, func_get_args())) {
-            abort(403, 'Unauthorized action.');
+        if (!in_array($userRole, $roles)) {
+            abort(403, 'Unauthorized');
         }
 
         return $next($request);

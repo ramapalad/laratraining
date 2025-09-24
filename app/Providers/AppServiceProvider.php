@@ -28,5 +28,18 @@ class AppServiceProvider extends ServiceProvider
                 ->numbers()
                 ->symbols();
         });
+
+        Inertia::share([
+        'auth' => function () {
+            return [
+                'user' => auth()->check() ? [
+                    'id' => auth()->user()->id,
+                    'name' => auth()->user()->name,
+                    'role' => auth()->user()->role->value,
+                ] : null,
+            
+            ];
+        },
+    ]);
     }
 }
