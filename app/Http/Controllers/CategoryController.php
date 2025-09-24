@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
-class Category extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -57,7 +57,7 @@ class Category extends Controller
 
         return response()->json([
             'message' => 'Category updated successfully', 
-            'category' => $category->fresh(),
+            'category' => $category->fresh()
         ], 200);
     }
 

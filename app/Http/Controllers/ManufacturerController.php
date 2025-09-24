@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location;
+use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 
-class Location extends Controller
+class ManufacturerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        retrun inertia('Location/Index');
+        return inertia('Manufacturer/Index');
     }
 
     /**
@@ -26,7 +26,7 @@ class Location extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Location $location)
+    public function show(Manufacturer $manufacturer)
     {
         //
     }
@@ -34,7 +34,7 @@ class Location extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Location $location)
+    public function update(Request $request, Manufacturer $manufacturer)
     {
         //
     }
@@ -42,7 +42,7 @@ class Location extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Location $location)
+    public function destroy(Manufacturer $manufacturer)
     {
         //
     }

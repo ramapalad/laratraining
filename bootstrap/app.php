@@ -8,6 +8,7 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets;
 use App\Http\Middleware\RoleMiddleware;;
 
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -25,6 +26,13 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => RoleMiddleware::class,
         ]);
+
+        //Csrf Exemption for Testing API routes
+        $middleware->validateCsrfTokens(except: [
+            'categories',
+            'categories/*',
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

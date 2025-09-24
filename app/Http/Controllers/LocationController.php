@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Asset;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
-
-class Asset extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return inertia('Asset/Index');
+        return inertia('Location/Index');
     }
 
     /**
@@ -21,21 +20,21 @@ class Asset extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Asset $asset)
+    public function show(Location $location)
     {
-        
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Asset $asset)
+    public function update(Request $request, Location $location)
     {
         //
     }
@@ -43,7 +42,7 @@ class Asset extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Asset $asset)
+    public function destroy(Location $location)
     {
         //
     }
