@@ -12,7 +12,7 @@ class Location extends Controller
      */
     public function index()
     {
-        retrun inertia('Locations/Index');
+        retrun inertia('Location/Index');
     }
 
     /**
