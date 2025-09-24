@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Location;
 use App\Models\Manufacturer;
 use App\Models\User;
+use App\Http\Resources\AssetResource;
 
 
 class AssetController extends Controller
@@ -43,7 +44,7 @@ class AssetController extends Controller
 
         return response()->json([
             'message' => 'Asset created successfully', 
-            'asset' => $asset
+            'asset' => new AssetResource($asset->load(['category', 'location', 'manufacturer', 'assignedTo']))
         ], 201);
     }
 
@@ -52,11 +53,11 @@ class AssetController extends Controller
      */
     public function show(Asset $asset)
     {
-        $asset = Asset::with(['category', 'location', 'manufacturer', 'user'])->findorFail($asset->id);
+        $asset = Asset::with(['category', 'location', 'manufacturer', 'assignedTo'])->findorFail($asset->id);
 
-        if (!$asset) {
-            return redirect()->back()->with('error', 'Asset not found.');
-        }
+        // if (!$asset) {
+        //     return redirect()->back()->with('error', 'Asset not found.');
+        // }
 
         return response()->json(new AssetResource($asset));
     }

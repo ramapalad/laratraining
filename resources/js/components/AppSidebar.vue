@@ -23,7 +23,7 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
-        roles: ['super-admin', 'inventory_manager', 'inventory_user'],
+        roles: ['super_admin', 'inventory_manager', 'inventory_user'],
     },
         {
         title: 'Assets',
