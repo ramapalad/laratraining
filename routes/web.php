@@ -17,9 +17,13 @@ Route::get('/', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware(['auth','verified'])->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', function () { return Inertia::render('Dashboard');})->name('dashboard');
 });
+
+// Route::middleware(['auth','verified'])->group(function () {
+//     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// });
 
 Route::middleware(['auth', 'verified', 'role:super_admin'])->group(function () {
     Route::resource('categories', CategoryController::class)->except(['create', 'edit']);

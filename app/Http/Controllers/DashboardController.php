@@ -10,7 +10,7 @@ class DashboardController extends Controller
         public function index()
     {
         $message = "Hello from DashboardController";
-        return inertia('Category/Index', [
+        return inertia('Dashboard', [
             'message' => $message
         ]);
     }
