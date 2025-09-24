@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Asset;
 use Illuminate\Http\Request;
 
+
 class Asset extends Controller
 {
     /**
@@ -20,7 +21,7 @@ class Asset extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -28,7 +29,7 @@ class Asset extends Controller
      */
     public function show(Asset $asset)
     {
-        //
+        
     }
 
     /**

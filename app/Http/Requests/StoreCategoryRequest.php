@@ -11,7 +11,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|min:3|max:255|unique:categories,name',
+            'description' => 'nullable|string|max:500',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [            
+            'name.unique' => 'The category name has already been taken.',            
         ];
     }
 }
