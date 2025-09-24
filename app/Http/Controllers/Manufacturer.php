@@ -12,7 +12,7 @@ class Manufacturer extends Controller
      */
     public function index()
     {
-        //
+        return inertia('Manufacturers/Index');
     }
 
     /**
