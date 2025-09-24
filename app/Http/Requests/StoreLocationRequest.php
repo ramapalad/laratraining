@@ -3,16 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateCategoryRequest extends FormRequest
+class StoreLocationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,11 +21,16 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        $category = $this->route('category');
-        
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('categories')->ignore($category->id)],
-            'description' => 'nullable|string|max:500',
+            'name' => 'required|string|min:3|max:255|unique:locations,name',
+            'address' => 'nullable|string|max:500',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.unique' => 'This location name is already exist.',
         ];
     }
 }

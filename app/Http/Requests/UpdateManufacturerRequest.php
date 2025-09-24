@@ -3,16 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateManufacturerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,11 +21,15 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        $category = $this->route('category');
-        
+
+        $itemid = $this->route('manufacturer');
+
         return [
-            'name' => ['required', 'string', 'min:3', 'max:255', Rule::unique('categories')->ignore($category->id)],
-            'description' => 'nullable|string|max:500',
+            'name' => 'required|string|min:3|max:255|unique:manufacturers,name',
+            'url' => 'nullable|url|max:255',
+            'support_url' => 'nullable|url|max:255',
+            'support_phone' => 'required|string|max:20',
+            'support_email' => 'required|email|max:255',
         ];
     }
 }
